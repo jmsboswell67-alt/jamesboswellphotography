@@ -18,10 +18,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container text-center">
       <h2>Capturing the World Through a Lens</h2>
       <p class="intro__text">
-        From the rolling farmlands of the Midwest to the rugged peaks of Colorado,
-        from city skylines to intimate wildlife encounters — I chase the light and
-        the moments that tell a story worth remembering.
+        Based in the Peoria, Illinois area, I photograph landscapes, wildlife, urban scenes,
+        and the natural world — from Midwest farmland at golden hour to Colorado canyons
+        and city skylines. I chase the light and the moments that tell a story worth remembering.
       </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section services">
+    <div class="container text-center">
+      <h2>Available For</h2>
+      <div class="services__grid">
+        <div class="services__item">
+          <h3>Fine Art Prints</h3>
+          <p>Landscape, wildlife, and nature prints available for purchase — ready to ship anywhere in the US.</p>
+        </div>
+        <div class="services__item">
+          <h3>Commissions</h3>
+          <p>Custom photography work for clients in the Peoria metro area and across central Illinois.</p>
+        </div>
+        <div class="services__item">
+          <h3>Collaborations</h3>
+          <p>Open to creative projects with local artists, businesses, and organizations in Peoria, Pekin, and the surrounding area.</p>
+        </div>
+      </div>
+      <a href="/contact" class="btn" style="margin-top: 2.5rem;">Get in Touch</a>
     </div>
   </section>
 
@@ -121,6 +143,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-text-light);
     line-height: 1.8;
     text-align: center;
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2.5rem;
+    text-align: left;
+  }
+
+  .services__item {
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .services__item h3 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .services__item p {
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .services__grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .featured h2 {

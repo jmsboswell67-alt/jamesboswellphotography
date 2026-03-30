@@ -50,11 +50,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
+      "@type": ["LocalBusiness", "Photographer"],
       "name": "James Boswell Photography",
       "url": "https://jamesboswellphotography.com",
-      "image": "https://jamesboswellphotography.com/photos/hero.jpg",
-      "description": "Landscape, wildlife, urban, and nature photography based in the Peoria Metro area, Illinois.",
+      "image": "https://jamesboswellphotography.com/og-image.jpg",
+      "description": "Landscape, wildlife, urban, and nature photography based in the Peoria Metro area, Illinois. Available for fine art print sales, commissions, and collaborations.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Pekin",
@@ -66,6 +66,33 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         "latitude": 40.5675,
         "longitude": -89.6406
       },
+      "areaServed": [
+        { "@type": "City", "name": "Peoria, IL" },
+        { "@type": "City", "name": "Pekin, IL" },
+        { "@type": "City", "name": "East Peoria, IL" },
+        { "@type": "City", "name": "Morton, IL" },
+        { "@type": "City", "name": "Washington, IL" },
+        { "@type": "City", "name": "Bloomington, IL" },
+        { "@type": "State", "name": "Illinois" }
+      ],
+      "serviceType": [
+        "Landscape Photography",
+        "Wildlife Photography",
+        "Urban Photography",
+        "Nature Photography",
+        "Fine Art Print Sales",
+        "Photography Commissions",
+        "Photo Collaborations"
+      ],
+      "knowsAbout": [
+        "Landscape Photography",
+        "Wildlife Photography",
+        "Nature Photography",
+        "Urban Photography",
+        "Central Illinois Photography",
+        "Peoria Illinois Photography",
+        "Fine Art Prints"
+      ],
       "sameAs": [
         "https://www.instagram.com/blackholescream/"
       ],
