@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = 'Photography portfolio of James Boswell — Landscape, Portrait, Street & Abstract photography.',
+  description = 'James Boswell Photography — Landscape, wildlife, urban, and nature photography based in the Peoria Metro area, Illinois. Available for commissions and prints.',
   image = '/og-image.jpg',
 } = Astro.props;
 
@@ -46,6 +46,31 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
     <title>{title}</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "James Boswell Photography",
+      "url": "https://jamesboswellphotography.com",
+      "image": "https://jamesboswellphotography.com/photos/hero.jpg",
+      "description": "Landscape, wildlife, urban, and nature photography based in the Peoria Metro area, Illinois.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pekin",
+        "addressRegion": "IL",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.5675,
+        "longitude": -89.6406
+      },
+      "sameAs": [
+        "https://www.instagram.com/blackholescream/"
+      ],
+      "priceRange": "$$"
+    })} />
   </head>
   <body>
     <Navbar />
