@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About — James Boswell Photography" description="Learn about James Boswell, a photographer based in the Peoria Metro area specializing in landscape, wildlife, urban, and nature photography.">
+  <section class="section about">
+    <div class="container">
+      <div class="about__grid">
+        <!-- Photo -->
+        <div class="about__image">
+          <img src="/photos/1_1-66.jpg" alt="James Boswell — photographer" />
+        </div>
+
+        <!-- Bio -->
+        <div class="about__content">
+          <h1>About Me</h1>
+          <p>
+            I'm James Boswell, a photographer based in the Peoria Metro area of
+            Illinois. My work spans landscapes, wildlife, urban environments, and
+            the natural world — always searching for the light, the story, and the
+            unexpected moment that makes a frame worth keeping.
+          </p>
+          <p>
+            Whether I'm chasing golden hour over Midwest farmland, hiking through
+            Colorado canyons, or framing the geometry of a city skyline, the camera
+            is how I make sense of the world around me. I'm drawn to subjects that
+            sit at the edge of the familiar and the extraordinary — a crow's stare,
+            sunbeams cutting through a forest canopy, or the quiet tension of a
+            moody sky before a storm.
+          </p>
+          <p>
+            I'm available for commissions, collaborations, and print inquiries.
+            Don't hesitate to <a href="/contact">get in touch</a>.
+          </p>
+
+          <div class="about__details">
+            <div class="about__detail">
+              <h3>Specialties</h3>
+              <p>Landscape, Wildlife, Urban, Nature</p>
+            </div>
+            <div class="about__detail">
+              <h3>Based In</h3>
+              <p>Peoria Metro, Illinois</p>
+            </div>
+            <div class="about__detail">
+              <h3>Equipment</h3>
+              <p>Canon R8 — 50mm, 16mm, 100-400mm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .about__content h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .about__content p {
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .about__content p a {
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+  }
+
+  .about__content p a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .about__details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .about__detail h3 {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .about__detail p {
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .about__image {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .about__details {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

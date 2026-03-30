@@ -1,0 +1,372 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const categories = ['All', 'Landscape', 'Wildlife', 'Urban', 'Nature'];
+
+const photos = [
+  // Landscape (17)
+  { src: '/photos/1_1-101.jpg', alt: 'Haystack Rock at Cannon Beach', category: 'Landscape' },
+  { src: '/photos/1_1-184.jpg', alt: 'Misty mountains in fog', category: 'Landscape' },
+  { src: '/photos/1_1-190.jpg', alt: 'Moody snowy peak under overcast sky', category: 'Landscape' },
+  { src: '/photos/1_1-203.jpg', alt: 'Moody lake in black and white', category: 'Landscape' },
+  { src: '/photos/1_1-226.jpg', alt: 'Golden autumn trail through the woods', category: 'Landscape' },
+  { src: '/photos/1_1-227.jpg', alt: 'Fall foliage on a hillside', category: 'Landscape' },
+  { src: '/photos/1_1-50.jpg', alt: 'Farm silos at sunset', category: 'Landscape' },
+  { src: '/photos/1_1-51.jpg', alt: 'Blazing orange and purple sunset', category: 'Landscape' },
+  { src: '/photos/1_1-63.jpg', alt: 'Storm clouds rolling over farmland', category: 'Landscape' },
+  { src: '/photos/DSCN0770.jpg', alt: 'Misty road with bridge at dawn', category: 'Landscape' },
+  { src: '/photos/DSCN4406-Enhanced-NR.jpg', alt: 'Snowy mountain panorama', category: 'Landscape' },
+  { src: '/photos/IMG_0336 - Copy.jpg', alt: 'Moody mountain lake', category: 'Landscape' },
+  { src: '/photos/IMG_0371-Enhanced-NR.jpg', alt: 'Farm and silos under blue sky', category: 'Landscape' },
+  { src: '/photos/IMG_0490.jpg', alt: 'Golden sunset over mountain road', category: 'Landscape' },
+  { src: '/photos/IMG_5853.jpg', alt: 'Desert lake at dusk', category: 'Landscape' },
+  { src: '/photos/IMG_8023-2.jpg', alt: 'Royal Gorge Bridge at sunset', category: 'Landscape' },
+  { src: '/photos/IMG_8200.jpg', alt: 'Mountain range at sunset with pink clouds', category: 'Landscape' },
+
+  // Wildlife (17)
+  { src: '/photos/1_1-111.jpg', alt: 'Deer close-up portrait', category: 'Wildlife' },
+  { src: '/photos/1_1-224.jpg', alt: 'Bird silhouette on a branch at dusk', category: 'Wildlife' },
+  { src: '/photos/1_1-300.jpg', alt: 'Fluffy dog covered in snow', category: 'Wildlife' },
+  { src: '/photos/1_1-306.jpg', alt: 'Black dog in falling snow', category: 'Wildlife' },
+  { src: '/photos/1_1-319.jpg', alt: 'Beagle running toward camera', category: 'Wildlife' },
+  { src: '/photos/1_1-323.jpg', alt: 'Beagle playing in the yard', category: 'Wildlife' },
+  { src: '/photos/1_1-386.jpg', alt: 'Heron perched in mangroves', category: 'Wildlife' },
+  { src: '/photos/1_1-405.jpg', alt: 'Parakeets on a wire', category: 'Wildlife' },
+  { src: '/photos/DSCN0342-2-Enhanced-NR.jpg', alt: 'Sparrow perched on a branch', category: 'Wildlife' },
+  { src: '/photos/DSCN0563.jpg', alt: 'Great blue heron on a branch', category: 'Wildlife' },
+  { src: '/photos/DSCN0580.jpg', alt: 'Sandpiper wading in calm water', category: 'Wildlife' },
+  { src: '/photos/DSCN0600-Enhanced-NR.jpg', alt: 'Red-winged blackbird on cattail', category: 'Wildlife' },
+  { src: '/photos/DSCN1029-Enhanced-NR.jpg', alt: 'Crow portrait from the front', category: 'Wildlife' },
+  { src: '/photos/DSCN1034-Enhanced-NR.jpg', alt: 'Crow profile portrait', category: 'Wildlife' },
+  { src: '/photos/DSCN4222-Enhanced-NR-2.jpg', alt: 'Grebe catching a fish', category: 'Wildlife' },
+  { src: '/photos/IMG_6732-Enhanced-NR.jpg', alt: 'Kookaburra extreme close-up', category: 'Wildlife' },
+  { src: '/photos/IMG_6972-Enhanced-NR-4.jpg', alt: 'Deer crossing a golden field', category: 'Wildlife' },
+
+  // Urban (14)
+  { src: '/photos/1_1-65.jpg', alt: 'Man overlooking Chicago skyline in black and white', category: 'Urban' },
+  { src: '/photos/1_1-66.jpg', alt: 'Chicago skyline from Millennium Park', category: 'Urban' },
+  { src: '/photos/1_1-67.jpg', alt: 'Chicago cityscape in black and white', category: 'Urban' },
+  { src: '/photos/1_1-7.jpg', alt: 'Street portrait in parking garage', category: 'Urban' },
+  { src: '/photos/1_1-90.jpg', alt: 'Medieval knight with red cape', category: 'Urban' },
+  { src: '/photos/1_1-94.jpg', alt: 'Knight raising chalice under stage lights', category: 'Urban' },
+  { src: '/photos/DSC00335-2-Enhanced-NR.jpg', alt: 'Greater Peoria mural downtown', category: 'Urban' },
+  { src: '/photos/DSCN0615.jpg', alt: 'Twisted tower at sunset', category: 'Urban' },
+  { src: '/photos/DSCN0630-Enhanced-NR-2.jpg', alt: 'Amazon Spheres in Seattle', category: 'Urban' },
+  { src: '/photos/DSCN0635-Enhanced-NR.jpg', alt: 'Dark glass tower against moody sky', category: 'Urban' },
+  { src: '/photos/DSCN0670-Enhanced-NR.jpg', alt: 'Glass towers framing the sky', category: 'Urban' },
+  { src: '/photos/IMG_2234.jpg', alt: 'Portland Oregon Old Town neon sign', category: 'Urban' },
+  { src: '/photos/IMG_3963-Enhanced-NR-2.jpg', alt: 'Bronze statue silhouette at sunset', category: 'Urban' },
+  { src: '/photos/IMG_3970-Enhanced-NR.jpg', alt: 'Colorful mosaic sphere sculpture', category: 'Urban' },
+
+  // Urban (continued)
+  { src: '/photos/IMG_3984.jpg', alt: 'Street art mural on brick building', category: 'Urban' },
+  { src: '/photos/IMG_4659-Enhanced-NR.jpg', alt: 'Red sculpture against golden sky', category: 'Urban' },
+
+  // Nature (10)
+  { src: '/photos/1_1-112.jpg', alt: 'Wooden statue in garden light', category: 'Nature' },
+  { src: '/photos/1_1-189.jpg', alt: 'Sunbeams through forest over stream', category: 'Nature' },
+  { src: '/photos/1_1-388.jpg', alt: 'Balinese stone statue in black and white', category: 'Nature' },
+  { src: '/photos/1_1-389.jpg', alt: 'Balinese stone guardian statue', category: 'Nature' },
+  { src: '/photos/IMG_0269-Enhanced-SR.jpg', alt: 'Red white and blue patriotic flowers', category: 'Nature' },
+  { src: '/photos/IMG_5755.jpg', alt: 'White flower in selective color', category: 'Nature' },
+  { src: '/photos/IMG_7241-Enhanced-NR.jpg', alt: 'Infrared butterfly on blue leaves', category: 'Nature' },
+  { src: '/photos/IMG_8449.jpg', alt: 'Stairway inside a cave', category: 'Nature' },
+  { src: '/photos/IMG_8453-2.jpg', alt: 'Mossy boulders in misty forest', category: 'Nature' },
+  { src: '/photos/IMG_8480-2.jpg', alt: 'Moss-covered rock face with stone steps', category: 'Nature' },
+];
+---
+
+<BaseLayout title="Gallery — James Boswell Photography" description="Browse landscape, wildlife, urban, and nature photography by James Boswell.">
+  <section class="section gallery">
+    <div class="container">
+      <h1 class="text-center">Gallery</h1>
+
+      <!-- Category Filters -->
+      <div class="gallery__filters" role="tablist" aria-label="Filter by category">
+        {categories.map((cat) => (
+          <button
+            class:list={['gallery__filter', { 'gallery__filter--active': cat === 'All' }]}
+            data-category={cat.toLowerCase()}
+            role="tab"
+            aria-selected={cat === 'All' ? 'true' : 'false'}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Photo Grid -->
+      <div class="gallery__grid" id="photo-grid">
+        {photos.map((photo, i) => (
+          <div class="gallery__item" data-category={photo.category.toLowerCase()}>
+            <img
+              class="gallery__img"
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              data-index={i}
+              tabindex="0"
+              role="button"
+              aria-label={`View: ${photo.alt}`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <button class="lightbox__prev" aria-label="Previous photo">&#8249;</button>
+    <button class="lightbox__next" aria-label="Next photo">&#8250;</button>
+    <div class="lightbox__content">
+      <img class="lightbox__img" id="lightbox-image" src="" alt="" />
+    </div>
+    <p class="lightbox__caption" id="lightbox-caption"></p>
+  </div>
+</BaseLayout>
+
+<style>
+  .gallery h1 {
+    margin-bottom: 2rem;
+  }
+
+  /* Filters */
+  .gallery__filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .gallery__filter {
+    padding: 0.5rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-text-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .gallery__filter:hover,
+  .gallery__filter--active {
+    border-color: var(--color-text);
+    color: var(--color-text);
+  }
+
+  /* Grid */
+  .gallery__grid {
+    columns: 3;
+    column-gap: 1rem;
+  }
+
+  .gallery__item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .gallery__item.is-hidden {
+    display: none;
+  }
+
+  .gallery__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .gallery__img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .lightbox:not([hidden]) {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lightbox__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+    z-index: 10;
+  }
+
+  .lightbox__prev,
+  .lightbox__next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1rem;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .lightbox__prev:hover,
+  .lightbox__next:hover {
+    opacity: 1;
+  }
+
+  .lightbox__prev { left: 1rem; }
+  .lightbox__next { right: 1rem; }
+
+  .lightbox__content {
+    max-width: 90vw;
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox__img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+
+  .lightbox__caption {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 1024px) {
+    .gallery__grid { columns: 2; }
+  }
+
+  @media (max-width: 640px) {
+    .gallery__grid { columns: 1; }
+  }
+</style>
+
+<script>
+  // Filter
+  const filters = document.querySelectorAll('.gallery__filter');
+  const items = document.querySelectorAll('.gallery__item');
+
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-category');
+
+      filters.forEach((f) => {
+        f.classList.remove('gallery__filter--active');
+        f.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('gallery__filter--active');
+      btn.setAttribute('aria-selected', 'true');
+
+      items.forEach((item) => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.classList.remove('is-hidden');
+        } else {
+          item.classList.add('is-hidden');
+        }
+      });
+    });
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox')!;
+  const lightboxImg = document.getElementById('lightbox-image') as HTMLImageElement;
+  const lightboxCaption = document.getElementById('lightbox-caption')!;
+  const closeLightboxBtn = lightbox.querySelector('.lightbox__close')!;
+  const prevBtn = lightbox.querySelector('.lightbox__prev')!;
+  const nextBtn = lightbox.querySelector('.lightbox__next')!;
+  const galleryImages = document.querySelectorAll('.gallery__img');
+
+  let currentIndex = 0;
+  const visibleItems = () =>
+    [...items].filter((item) => !item.classList.contains('is-hidden'));
+
+  function openLightbox(index: number) {
+    const visible = visibleItems();
+    currentIndex = index;
+    const item = visible[currentIndex];
+    const img = item?.querySelector('.gallery__img') as HTMLImageElement;
+    if (img) {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = `${img.alt}  —  ${currentIndex + 1} / ${visible.length}`;
+    }
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLB() {
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  function navigate(dir: number) {
+    const visible = visibleItems();
+    currentIndex = (currentIndex + dir + visible.length) % visible.length;
+    openLightbox(currentIndex);
+  }
+
+  galleryImages.forEach((img) => {
+    img.addEventListener('click', () => {
+      const item = img.closest('.gallery__item') as HTMLElement;
+      const visible = visibleItems();
+      const idx = visible.indexOf(item);
+      if (idx !== -1) openLightbox(idx);
+    });
+
+    img.addEventListener('keydown', (e) => {
+      if ((e as KeyboardEvent).key === 'Enter') (img as HTMLElement).click();
+    });
+  });
+
+  closeLightboxBtn.addEventListener('click', closeLB);
+  prevBtn.addEventListener('click', () => navigate(-1));
+  nextBtn.addEventListener('click', () => navigate(1));
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLB();
+  });
+</script>
