@@ -33,6 +33,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="services__item">
           <h3>Fine Art Prints</h3>
           <p>Landscape, wildlife, and nature prints available for purchase — ready to ship anywhere in the US.</p>
+          <a href="https://www.etsy.com/shop/JamesbphotographyArt" target="_blank" rel="noopener noreferrer" class="services__link">Browse Prints on Etsy →</a>
         </div>
         <div class="services__item">
           <h3>Commissions</h3>
@@ -171,6 +172,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-text-light);
     line-height: 1.7;
     margin: 0;
+  }
+
+  .services__link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 1px;
+  }
+
+  .services__link:hover {
+    color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
   }
 
   @media (max-width: 768px) {

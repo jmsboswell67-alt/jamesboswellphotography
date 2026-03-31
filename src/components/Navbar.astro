@@ -7,6 +7,10 @@ const links = [
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
+
+const externalLinks = [
+  { href: 'https://www.etsy.com/shop/JamesbphotographyArt', label: 'Shop Prints' },
+];
 ---
 
 <nav class="navbar" aria-label="Main navigation">
@@ -28,6 +32,13 @@ const links = [
             href={href}
             class:list={['navbar__link', { 'navbar__link--active': currentPath === href }]}
           >
+            {label}
+          </a>
+        </li>
+      ))}
+      {externalLinks.map(({ href, label }) => (
+        <li>
+          <a href={href} class="navbar__link navbar__link--cta" target="_blank" rel="noopener noreferrer">
             {label}
           </a>
         </li>
@@ -96,6 +107,21 @@ const links = [
   .navbar__link:hover,
   .navbar__link--active {
     color: var(--color-text);
+  }
+
+  .navbar__link--cta {
+    color: var(--color-accent) !important;
+    border: 1px solid var(--color-accent);
+    padding: 0.35rem 0.85rem;
+  }
+
+  .navbar__link--cta:hover {
+    background: var(--color-accent);
+    color: #fff !important;
+  }
+
+  .navbar__link--cta::after {
+    display: none;
   }
 
   .navbar__link:hover::after,
